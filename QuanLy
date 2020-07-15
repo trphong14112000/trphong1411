@@ -1,0 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitaplon;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author trpho
+ */
+public class QuanLy extends NhanVien implements Interface {
+    private final float PCCV3=0;
+    private float PCTN3;
+    public QuanLy(){
+    }
+    public QuanLy(int manv,String hoten,String ngaysinh,String gioitinh ,float hsl,String phongban,float songaydilam,float sogiolamthem,float PCTN3){
+    super(manv,hoten,ngaysinh,gioitinh,hsl,phongban,songaydilam,sogiolamthem);
+    this.PCTN3=PCTN3;
+    }
+   public boolean setPCTN3(float PCTN3){
+       if(PCTN3>=0 && PCTN3<=3){
+           this.PCTN3=PCTN3;
+           return true;
+       }
+       else
+           System.out.println("PHU CAP TRACH NGHIEM TU(0-3)-NHAP LAI!!");
+           return false;
+   }
+
+     public float getPCTN3(){
+         return PCTN3;
+     }
+     
+    @Override
+     public void Nhap(){
+         super.Nhap();
+           Scanner sc= new Scanner(System.in);
+        System.out.println("NHAP PHU CAP TRACH NGHIEM:");
+        while(true){
+            float scPCTN3 = Float.parseFloat(sc.nextLine());
+            boolean check = setPCTN3(scPCTN3);
+            if(check){
+                break;
+            }
+        }
+          luongnv=TinhLuong();
+     }
+    @Override
+    public float MucLuong(){
+        return ((lcb*(hsl+PCTN3)/26)*songaydilam);
+        
+    } 
+    @Override
+    public float TienLamThem(){
+        return (float) ((lcb*hsl)/(26*8)*1.5*sogiolamthem);
+    }
+    @Override
+    public float TinhLuong(){
+        return MucLuong()+TienLamThem();
+    }
+    @Override
+    public void Hien(){
+        super.Hien();
+        System.out.printf("%15s|%15s|%15s",PCTN3,PCCV3,TinhLuong());
+        
+    }
+    }
