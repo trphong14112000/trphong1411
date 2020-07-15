@@ -1,0 +1,34 @@
+
+
+import java.util.Scanner;
+
+public class Test {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        DS a=new DS();
+        int chon;
+        do{
+        menu();
+        chon = new Scanner(System.in).nextInt();
+        switch(chon){
+            case 1: a.NhapCV(); break
+                    ;
+            case 2: a.NhapGV(); break;
+            case 3: a.NhapQL(); break;
+            case 4: a.Hien(); break;
+        }
+        }
+        while(chon!=0);
+    }
+    static void menu(){
+        System.out.println("");
+        System.out.println("1. Nhập chuyên viên");
+        System.out.println("2. Nhập giảng viên");
+        System.out.println("3. Nhập quản lý");
+        System.out.println("4. Hiện");
+        System.out.print("Chọn: ");
+    }
+}
