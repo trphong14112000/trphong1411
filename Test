@@ -1,0 +1,92 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitaplon;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author trpho
+ */
+public class Test {
+    static void menu(){
+        System.out.println("1.NHAP DANH SACH NHAN VIEN ");
+        System.out.println("2.HIEN DANH SACH NHAN VIEN");
+        System.out.println("3.SAP XEP DANH SACH NHAN VIEN");
+        System.out.println("4.TINH TONG LUONG NHAN VIEN");
+        System.out.println("5.XOA NHAN VIEN ");
+        System.out.println("6.GHI FILE ");
+        System.out.println("7.DOC FILE ");
+        System.out.println("0.THOAT!!");
+    }
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    DSNhanVien dsnv = new DSNhanVien();
+    int chon1;
+    int chon2;
+    do{
+        menu();
+        System.err.printf("\nMOI BAN NHAP LUA CHON");
+      
+        chon1 =sc.nextInt();
+       switch(chon1){
+           case 1 : 
+               do{
+                   System.out.println("1.NHAP THONG TIN NHAN VIEN CHINH THUC");
+                   System.out.println("2.NHAP THONG TIN QUAN LY");
+                   System.out.println("3.NHAP THONG TIN TRUONG PHONG");
+                   chon2=sc.nextInt();
+                   dsnv.NhapDS(chon2); 
+                   System.out.println("AN SO BAT KI DE TIEP TUC - 0 DE DUNG !!");
+                   chon2=sc.nextInt();
+               }while(chon2!=0);
+               break;
+           case 2 : 
+               do{
+                   System.out.println("1.HIEN THONG TIN CUA TAT CA NHAN VIEN");
+                   System.out.println("2.HIEN THONG TIN CUA NHAN VIEN CHINH THUC");
+                   System.out.println("3.HIEN THONG TIN QUAN LY");
+                   System.out.println("4.HIEN THONG TIN TRUONG PHONG");
+                   System.out.println("5.HIEN THONG TIN CUA NHAN VIEN LAM VIEC TAI PHONG BAN");
+                   chon2=sc.nextInt();
+                   dsnv.HienDS(chon2);
+                   System.out.println("AN SO BAT KI DE TIEP TUC - 0 DE DUNG !!");
+                   chon2=sc.nextInt();
+               }while(chon2!=0);
+               break;
+           case 3: 
+               do{
+                   System.out.println("1.SAP XEP NHAN VIEN THEO HO TEN ");
+                   System.out.println("2.SAP XEP NHAN VIEN THEO HSL");
+                   System.out.println("3.SAP XEP NHAN VIEN THEO LUONG ");
+                   chon2=sc.nextInt();
+                   dsnv.SapXep(chon2);
+               
+                   System.out.println("AN SO BAT KI DE TIEP TUC - 0 DE DUNG !!");
+                   chon2=sc.nextInt();
+              }while(chon2!=0);  
+               break;
+           case 4 : 
+               do{
+                   System.out.println("1.TINH TONG LUONG CUA TAT CA CAC NHAN VIEN ");
+                   System.out.println("2.TINH TONG LUONG CUA NHAN VIEN CHINH THUC ");
+                   System.out.println("3.TINH TONG LUONG QUAN LY");
+                   chon2=sc.nextInt();
+                   dsnv.TongLuong(chon2);
+                 
+                    System.out.println("AN SO BAT KI DE TIEP TUC - 0 DE DUNG !!");
+                   chon2=sc.nextInt();
+               }while(chon2!=0);
+               break;
+           case 5 : dsnv.Xoanv();break;
+           case 6 : dsnv.ghifileDSNV("NHANVIEN.DAT");break;
+           case 7 : dsnv.docfileDSNV("NHANVIEN.DAT"); break;
+         }
+   
+    }while(chon1!=0);
+    }
+}
+  
