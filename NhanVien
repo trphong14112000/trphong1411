@@ -1,0 +1,156 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package baitaplon;
+
+import java.io.Serializable;
+import java.util.Scanner;
+
+/**
+ *
+ * @author trpho
+ */
+public class NhanVien implements Serializable{
+    protected int manv;
+    protected String hoten;
+    protected String ngaysinh;
+    protected String gioitinh;
+    protected float hsl;
+    protected String phongban;
+    protected float songaydilam;
+    protected float sogiolamthem;
+    protected float luongnv;
+    public NhanVien(){
+    }
+    public NhanVien(int manv,String hoten,String ngaysinh,String gioitinh ,float hsl,String phongban,float songaydilam,float sogiolamthem)
+    {
+        this.manv=manv;
+        this.hoten=hoten;
+        this.ngaysinh=ngaysinh;
+        this.gioitinh=gioitinh;
+        this.hsl=hsl;
+        this.phongban=phongban;
+        this.songaydilam=songaydilam;
+        this.sogiolamthem=sogiolamthem;
+        
+    }
+    public void setManv(int manv){
+        this.manv=manv;
+    }
+    public int getManv(){
+        return manv;
+    }
+    public void setHoten(String hoten){
+        this.hoten=hoten;
+    }
+    public String getHoten(){
+        return hoten;
+    }
+    public void setNgaysinh(String ngaysinh){
+        this.ngaysinh=ngaysinh;
+    }
+    public String getNgaysinh(){
+        return ngaysinh;
+    }
+    public void setGioitinh(String gioitinh){
+        this.gioitinh=gioitinh;   
+    }
+    public String getGioitinh(){
+        return gioitinh;
+    }
+    public boolean setHsl(float hsl){
+        if(hsl>0 && hsl<5){
+            this.hsl=hsl;
+            return true ;
+          }
+        else
+            System.out.println("HE SO LUONG PHAI TU(1-5).NHAP LAI!!!");
+        return false;
+    }
+    public float getHsl(){
+        return hsl;
+    }
+    public void setPhongban(String phongban){
+        this.phongban=phongban;
+    }
+    public String getPhongban(){
+        return phongban;
+    }
+    public boolean setSongaydilam(float songaydilam){
+        if(songaydilam>=0 && songaydilam<=26){
+            this.hsl=hsl;
+            return true;
+        }
+        else 
+            System.out.println("SO NGAY DI LAM PHAI TU (0-26).NHAP LAI!!!");
+             return false;
+    }
+    public float getSongaydilam(){
+        return songaydilam;
+    }
+    public boolean setSogiolamthem(float sogiolamthem){
+      if(sogiolamthem >=1 && sogiolamthem<=30){
+          this.sogiolamthem=sogiolamthem;
+          return true;
+      }
+      else 
+            System.out.println("SO GIO LAM THEM PHAI TU (1-30).NHAP LAI!!!");
+             return false;
+    }
+    public float getSogiolamthem(){
+        return sogiolamthem;
+    }
+    public void setLuongnv(float luongnv){
+        this.luongnv=luongnv;
+    }
+    public float getLuongnv(){
+        return luongnv;
+    }
+    public void Nhap(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("NHAP MA NHAN VIEN ");
+        manv=Integer.parseInt(sc.nextLine());
+        System.out.println("NHAP HO TEN NHAN VIEN ");
+        hoten=sc.nextLine();
+        System.out.println("NHAP NGAY SINH CUA NHAN VIEN");
+        ngaysinh=sc.nextLine();
+        System.out.println("NHAP GIOI TINH CUA NHAN VIEN");
+        gioitinh=sc.nextLine();
+        System.out.println("NHAP PHONG BAN LAM VIEC");
+        phongban=sc.nextLine();
+        System.out.println("NHAP HE SO LUONG ");
+        while(true){
+           float schsl = Float.parseFloat(sc.nextLine());
+           boolean check = setHsl(schsl);
+           if(check){
+               break;
+           }
+        }
+        System.out.println("NHAP SO NGAY DI LAM :");
+        while(true){
+            float scsongaydilam= sc.nextFloat();
+            boolean check = setSongaydilam(scsongaydilam);
+            if(check){
+                break;
+            }
+        }
+        System.out.println("NHAP SO GIO LAM THEM ");
+        while(true){
+            float scsogiolamthem=sc.nextFloat();
+            boolean check =setSogiolamthem(scsogiolamthem);
+            if(check){
+                break;
+            }
+            
+        }
+                 
+    }
+    public void Hien(){
+        System.out.printf("\n%10s|%20s|%10s|%10s|%10s|%15s|%20s|%20s",manv,hoten,ngaysinh,gioitinh,phongban,hsl,songaydilam,sogiolamthem);
+    }
+    
+   }
+    
+
