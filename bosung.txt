@@ -1,0 +1,11 @@
+Câu 2 : . Lệnh nào cho phép hợp nhất những thay đổi vào một branch master trong dự án :
+A Pull requests 
+B Merge commmand
+C Add file
+D Upload file
+Câu 4 : Để sao chép 1 dự án của người khác trên Github về thư viện của mình ta dùng cách gì :
+A Coppy 
+B Star
+C Fork
+D Watch
+
